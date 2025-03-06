@@ -6,30 +6,25 @@ import 'package:midtermlabquizjbr/screens/containers/brighton.dart';
 import 'package:midtermlabquizjbr/screens/containers/liverpool.dart';
 import 'package:midtermlabquizjbr/screens/containers/manchestercity.dart';
 
-class MyPLVotingAppBody extends StatefulWidget {
+class MyPLVotingAppBody extends StatelessWidget {
   const MyPLVotingAppBody({super.key});
 
   @override
-  State<MyPLVotingAppBody> createState() => _MyPLVotingAppBodyState();
-}
-
-class _MyPLVotingAppBodyState extends State<MyPLVotingAppBody> {
-  @override
   Widget build(BuildContext context) {
     return const Material(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MyBournmouthContainer(),
-                MyArsenalContainer(),
-                MyAstonVillaContainer(),
-                MyBrightonContainer(),
-                MyLiverpoolContainer(),
-                MyManchesterCityContainer()
-               ],
-            ),
-          ),
-        );
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MyBournmouthContainer(),
+            MyArsenalContainer(),
+            MyAstonVillaContainer(),
+            MyBrightonContainer(),
+            MyLiverpoolContainer(),
+            MyManchesterCityContainer()
+          ],
+        ),
+      ),
+    );
   }
 }
