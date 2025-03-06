@@ -4,10 +4,10 @@ class MyBournmouthContainer extends StatefulWidget {
   const MyBournmouthContainer({super.key});
 
   @override
-  State<MyBournmouthContainer> createState() => MyBournmouthContainerState();
+  State<MyBournmouthContainer> createState() => _MyBournmouthContainerState();
 }
 
-class MyBournmouthContainerState extends State<MyBournmouthContainer> {
+class _MyBournmouthContainerState extends State<MyBournmouthContainer> {
   int _likeCount = 0;
 
   void _incrementLike() {
@@ -24,14 +24,14 @@ class MyBournmouthContainerState extends State<MyBournmouthContainer> {
       alignment: Alignment.center,
       margin: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 220, 125, 118),
+        color: const Color.fromRGBO(218, 41, 28 ,10),
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10.0),
+            padding: const EdgeInsets.only(left: 10.0), // Consistent padding
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,10 +52,24 @@ class MyBournmouthContainerState extends State<MyBournmouthContainer> {
             height: 60.0,
             width: 60.0,
             fit: BoxFit.contain,
+            alignment: Alignment.centerLeft, // Align the image to the left
           ),
-          IconButton(
-            icon: const Icon(Icons.thumb_up),
-            onPressed: _incrementLike,
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0), // Consistent padding
+            child: ElevatedButton.icon(
+              onPressed: _incrementLike,
+              icon: Builder(
+              builder: (context) => const IconTheme(
+                data: IconThemeData(color: Color.fromRGBO(168, 153, 104, 10)), // Change this to your desired icon color
+                child: Icon(Icons.thumb_up),
+              ),
+            ),
+              label: const Text('Vote'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white, // Change this to your desired background color
+                foregroundColor: Color.fromRGBO(168, 153, 104, 10), // Change this to your desired text and icon color
+              ),
+            ),
           ),
         ],
       ),
